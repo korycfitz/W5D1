@@ -3,19 +3,22 @@ class Integer
 end
 
 class Array
-  def hash
+  def hi
+    self.hash
+    
   end
 end
 
 class String
-  def hash
+  def hix
+    self.hash
   end
 end
 
 class Hash
   # This returns 0 because rspec will break if it returns nil
   # Make sure to implement an actual Hash#hash method
-  def hash
-    0
+  def hi
+  self.hash
   end
 end
