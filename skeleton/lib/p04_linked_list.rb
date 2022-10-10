@@ -20,7 +20,13 @@ class Node
 end
 
 class LinkedList
+  # require 'Enumerable'
+
   def initialize
+    @head = Node.new()
+    @tail = Node.new()
+    @head.next = @tail
+    @tail.prev = @head
   end
 
   def [](i)
@@ -29,21 +35,26 @@ class LinkedList
   end
 
   def first
+    @head
   end
 
   def last
+    @tail
   end
 
   def empty?
+
   end
 
   def get(key)
   end
 
-  def include?(key)
+  def include?(key) #iterate through 
+    
   end
 
   def append(key, val)
+
   end
 
   def update(key, val)
@@ -56,7 +67,7 @@ class LinkedList
   end
 
   # uncomment when you have `each` working and `Enumerable` included
-  # def to_s
-  #   inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
-  # end
+  def to_s
+    inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
+  end
 end
