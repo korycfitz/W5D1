@@ -1,3 +1,4 @@
+require "byebug"
 class MaxIntSet
   attr_accessor :store
   def initialize(max)
@@ -34,17 +35,25 @@ end
 
 
 class IntSet
+  attr_accessor :num_buckets
   def initialize(num_buckets = 20)
+    @num_buckets = num_buckets
     @store = Array.new(num_buckets) { Array.new }
   end
 
   def insert(num)
+    index = num % @store.length
+    @store[index] << num
   end
 
   def remove(num)
+    @store[num % @store.length].delete(num)
+
   end
 
   def include?(num)
+    return true if @store[num % @store.length].include?(num)
+    false
   end
 
   private
